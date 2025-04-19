@@ -3,7 +3,7 @@ package com.example.jsonexample.repository
 import com.example.jsonexample.networking.RetrofitInstance
 import com.google.gson.JsonElement
 
-class Repository() {
+class Repository {
 
     suspend fun getPosts() : Result<List<JsonElement>> {
         return try {

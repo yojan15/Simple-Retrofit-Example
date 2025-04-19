@@ -17,16 +17,19 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     var id : Int = -1
         set(value) {
             field = value
+            validate()
         }
 
     var title : String = ""
         set(value) {
             field = value
+            validate()
         }
 
     var body : String = ""
         set(value) {
             field = value
+            validate()
         }
 
     fun fetchData() {
@@ -45,6 +48,14 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
             } catch (exception : Exception) {
                 Log.e("ViewModel","${exception.message}")
             }
+        }
+    }
+
+    private fun validate() {
+        if(id == -1 || title.isBlank() || body.isBlank()) {
+            Log.d("viewModel","Data has not been fetched")
+        } else {
+            Log.d("viewModel","Data Loaded successfully...")
         }
     }
 }
